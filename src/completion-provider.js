@@ -210,12 +210,14 @@ class CompletionProvider {
               path.dirname(path.resolve(projectPath, alias.src)),
               moduleSearchPath
             );
+            console.debug('paths', realPrefix, searchPath);
 
             return this.lookupLocal(realPrefix, searchPath);
           }
         )).then(
           (suggestions) => [].concat(...suggestions)
         ).then(suggestions => {
+          console.debug('suggestions', suggestions);
           if (prefix === realPrefix) {
             // make sure the suggestions are from the compatible aliases
             return suggestions.filter(sugg =>
