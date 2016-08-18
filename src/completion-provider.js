@@ -182,12 +182,12 @@ class CompletionProvider {
   lookupBabelPluginModuleAlias(prefix) {
     const projectPath = atom.project.getPaths()[0];
     if (projectPath) {
-      const c = findBabelConfig(projectPath);
+      /*const c = findBabelConfig(projectPath);
       if (c && c.config && Array.isArray(c.config.plugins)) {
         const pluginConfig = c.config.plugins.find(p => p[0] === 'module-alias');
         if (!pluginConfig) {
           return Promise.resolve([]);
-        }
+        }*/
 
         // determine the right prefix
         // `realPrefix` is the prefix we want to use to find the right file/suggestions
@@ -199,7 +199,8 @@ class CompletionProvider {
         const moduleSearchPath = prefixSplit.join('/');
 
         // get the alias configs for the specific module
-        const aliasesConfig = pluginConfig[1].filter(alias => alias.expose.startsWith(modulePrefix));
+        const aliasesConfig = /*pluginConfig[1].filter(alias => alias.expose.startsWith(modulePrefix));*/
+          {alias: 'ouicar', src: "./frontend/scripts"};
 
         return Promise.all(aliasesConfig.map(
           (alias) => {
@@ -223,7 +224,7 @@ class CompletionProvider {
           }
           return suggestions;
         });
-      }
+      /*}*/
     }
 
     return Promise.resolve([]);
