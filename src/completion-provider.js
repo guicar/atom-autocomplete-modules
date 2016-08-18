@@ -200,7 +200,7 @@ class CompletionProvider {
 
         // get the alias configs for the specific module
         const aliasesConfig = /*pluginConfig[1].filter(alias => alias.expose.startsWith(modulePrefix));*/
-          {alias: 'ouicar', src: "./frontend/scripts"};
+          [{alias: 'ouicar', src: "./frontend/scripts"}];
 
         return Promise.all(aliasesConfig.map(
           (alias) => {
