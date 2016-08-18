@@ -207,7 +207,7 @@ class CompletionProvider {
             // The search path is the parent directory of the source directory specified in .babelrc
             // then we append the `moduleSearchPath` to get the real search path
             const searchPath = path.resolve(projectPath, alias.src);
-            console.debug('paths', realPrefix, searchPath);
+            console.debug('paths', realPrefix, searchPath, moduleSearchPath, modulePrefix);
 
             return this.lookupLocal(realPrefix, searchPath);
           }
