@@ -196,6 +196,7 @@ class CompletionProvider {
         const prefixSplit = prefix.split('/');
         const modulePrefix = prefixSplit[0];
         const realPrefix = prefixSplit.pop();
+        prefixSplit.shift();
         const moduleSearchPath = prefixSplit.join('/');
 
         // get the alias configs for the specific module
@@ -206,7 +207,7 @@ class CompletionProvider {
           (alias) => {
             // The search path is the parent directory of the source directory specified in .babelrc
             // then we append the `moduleSearchPath` to get the real search path
-            const searchPath = path.resolve(projectPath, alias.src);
+            const searchPath = path.join(path.resolve(projectPath, alias.src), modulePrefix);
             console.debug('paths', realPrefix, searchPath, moduleSearchPath, modulePrefix);
 
             return this.lookupLocal(realPrefix, searchPath);
