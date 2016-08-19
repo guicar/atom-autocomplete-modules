@@ -41,7 +41,7 @@ class AutocompleteModulesPlugin {
         title: 'Babel Plugin Module Alias support',
         description: 'Use the <a href="https://github.com/tleunen/babel-plugin-module-alias">Babel Plugin Module Alias</a> configuration located in your `.babelrc` or in the babel configuration in `package.json`.',
         type: 'boolean',
-        default: false
+        default: true
       }
     };
   }
